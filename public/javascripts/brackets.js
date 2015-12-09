@@ -1,7 +1,7 @@
-$(document).ready(function() {
-  var jqxhr = $.getJSON('http://localhost:3000/tournament', function(data) {
-    console.log('Success!');
-    console.log(data);
+var interval;
+
+function poll() {
+  $.getJSON('http://localhost:3000/tournament', function(data) {
     $('.brackets').bracket({
       init: data[0] 
     });
@@ -9,4 +9,12 @@ $(document).ready(function() {
   .fail(function() {
     console.log('Failed to load tournament data.');
   })
+}
+
+function initPolling() {
+  interval = setInterval(poll, 1000);
+}
+
+$(document).ready(function() {
+  initPolling();
 });
