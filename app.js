@@ -10,7 +10,7 @@ var monk = require('monk');
 var db = monk('localhost:27017/tournament');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var editor = require('./routes/editor');
 var tournament = require('./routes/tournament');
 
 var app = express();
@@ -27,8 +27,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
-
 // Make our db accessible to our router
 app.use(function(req,res,next){
     req.db = db;
@@ -37,7 +35,7 @@ app.use(function(req,res,next){
 
 // Define routes
 app.use('/', routes);
-app.use('/users', users);
+app.use('/editor', editor);
 app.use('/tournament', tournament);
 
 // catch 404 and forward to error handler
