@@ -1,6 +1,8 @@
 body {
   padding: 30px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
 h2 {
@@ -55,4 +57,34 @@ a {
 fieldset {
   border:0;
   padding:0; margin:0;
+}
+
+.countdown {
+  background: #F1614B;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  text-align: center;
+}
+
+.countdown .digit {
+  color: rgba(255,255,255,0.5);
+  font-size: 300px;
+  line-height: 300px;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.hidden {
+  display: none;
+}
+
+.noscroll {
+  overflow: hidden;
 }
