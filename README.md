@@ -16,6 +16,11 @@ npm install
 npm start
 ```
 
+### 3. Access interfaces
+
+Static brackets: `http://localhost:3000`
+Editable brackets: `http://localhost:3000/editor`
+
 ## License
 
 See [LICENSE.md](./LICENSE.md)
