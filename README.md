@@ -1,3 +1,3 @@
 # EDRA Tournament
 
-Single screen based tournament interface for first EDRA drone competition.
+EDRA tournament interface based on [jQuery Bracket library](https://github.com/teijo/jquery-bracket)
