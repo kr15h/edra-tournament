@@ -2,11 +2,23 @@ var interval;
 
 var keySpace = 32;
 
+function toggleOverlay(show) {
+  if (show) {
+    $('.overlay').removeClass('hidden');
+    $('body').addClass('noscroll');
+  } else {
+    $('.overlay').addClass('hidden');
+    $('body').removeClass('noscroll');
+  }
+}
+
 function poll() {
   $.getJSON('http://localhost:3000/tournament', function(data) {
+    console.log(data[0]);
     $('.brackets').bracket({
-      init: data[0] 
+      init: data[0]
     });
+    toggleOverlay(data[0].showMatch);
   })
   .fail(function() {
     console.log('Failed to load tournament data.');
@@ -15,16 +27,6 @@ function poll() {
 
 function initPolling() {
   interval = setInterval(poll, 1000);
-}
-
-function toggleOverlay() {
-  if ($('.overlay').hasClass('hidden')) {
-    $('.overlay').removeClass('hidden');
-    $('body').addClass('noscroll');
-  } else {
-    $('.overlay').addClass('hidden');
-    $('body').removeClass('noscroll');
-  }
 }
 
 $(document).ready(function() {

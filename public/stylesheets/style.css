@@ -83,6 +83,11 @@ fieldset {
   padding:0; margin:0;
 }
 
+/* Hide the editor tools */
+.tools {
+  display: none;
+}
+
 .overlay {
   background: #F1614B;
   width: 100%;

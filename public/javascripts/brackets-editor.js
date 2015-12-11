@@ -1,3 +1,27 @@
+var team1 = '--';
+var team2 = '--';
+var showMatch = false;
+var keySpace = 32;
+var backupData = {};
+
+function removeListeners() {
+  console.log('removing listeners');
+  $('.match').unbind('mouseenter');
+}
+
+function addListeners() {
+  console.log('adding listeners');
+  $('.match').on('click', function() {
+    team1 = $(this).find('.label').eq(0).text();
+    team2 = $(this).find('.label').eq(1).text();
+  });
+}
+
+function resetListeners() {
+  removeListeners();
+  addListeners();
+}
+
 function saveFn(data) {
   var json = JSON.stringify(data)
   console.log(data);
@@ -9,9 +33,18 @@ function saveFn(data) {
     data: json
   }).done(function() {
     console.log('Success.');
+    setTimeout(resetListeners, 100);
   }).fail(function() {
     console.log('Fail.')
   });
+}
+
+// Toggle the showMatch toggle and send new value to api
+function toggleShowMatch() {
+  showMatch = !showMatch;
+  console.log(showMatch);
+  backupData.showMatch = showMatch;
+  saveFn(backupData);
 }
 
 $(document).ready(function() {
@@ -19,12 +52,29 @@ $(document).ready(function() {
   var jqxhr = $.getJSON('http://localhost:3000/tournament', function(data) {
     console.log('Success!');
     console.log(data);
+    backupData = data[0];
     $('.brackets').bracket({
       init: data[0],
-      save: saveFn 
+      save: saveFn
     });
+
+    setTimeout(resetListeners, 100);
   })
   .fail(function() {
     console.log('Failed to load tournament data.');
-  })
+  });
+
+});
+
+// Toggle showMatch on space keypress if the teams are set
+$(document).keypress(function(event) {
+  if (event.keyCode === keySpace) {
+    event.preventDefault();
+    console.log('-----------')
+    console.log(team1);
+    console.log(team2);
+    if (team1 !== '--' && team2 !== '--') {
+      toggleShowMatch();
+    }
+  }
 });
