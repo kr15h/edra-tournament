@@ -1,6 +1,30 @@
+@font-face {
+    font-family: RobotoSlabThin;
+    src: url("../fonts/RobotoSlab-Thin.ttf");
+    font-weight:100;
+}
+
+@font-face {
+    font-family: RobotoSlabLight;
+    src: url("../fonts/RobotoSlab-Light.ttf");
+    font-weight:300;
+}
+
+@font-face {
+    font-family: RobotoSlabRegular;
+    src: url("../fonts/RobotoSlab-Regular.ttf");
+    font-weight:400;
+}
+
+@font-face {
+    font-family: RobotoSlabBold;
+    src: url("../fonts/RobotoSlab-Bold.ttf");
+    font-weight:700;
+}
+
 body {
   padding: 30px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px RobotoSlabRegular, serif;
   width: 100%;
   height: 100%;
 }
@@ -59,7 +83,7 @@ fieldset {
   padding:0; margin:0;
 }
 
-.countdown {
+.overlay {
   background: #F1614B;
   width: 100%;
   height: 100%;
@@ -70,7 +94,72 @@ fieldset {
   text-align: center;
 }
 
-.countdown .digit {
+.vs-container {
+  width: 90%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.vs-avatar {
+  display: inline-block;
+  width: 50%;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.vs-avatar img {
+  width: 300px;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.vs-name, 
+.vs-aka {
+  color: rgba(255,255,255,0.5);
+}
+
+.vs-name,
+.vs-aka {
+  font-family: RobotoSlabLight, serif;
+  font-size: 15px;
+  letter-spacing: 0.1em;
+}
+
+.vs-aka {
+  margin-bottom: 15px;
+}
+
+.vs-nick {
+  font-family: RobotoSlabBold, serif;
+  font-size: 30px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.75);
+}
+
+.vs-comparator {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-family: RobotoSlabBold, serif;
+  color: rgba(255,255,255,0.75);
+  font-size: 50px;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+  margin-left: -50px;
+  margin-top: -90px;
+  letter-spacing: 0.01em;
+}
+
+.countdown-container {
+  
+}
+
+.countdown-digit {
   color: rgba(255,255,255,0.5);
   font-size: 300px;
   line-height: 300px;

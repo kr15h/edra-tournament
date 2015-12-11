@@ -2,7 +2,27 @@ extends layout
 
 block content
   div(class='brackets')
-  div(class='countdown hidden')
-    div(class='digit')
-      span= '3'
+
+  div(class='overlay hidden')
+    
+    div(class='vs-container')
+      div(class='vs-avatar')
+        img(src='images/kriwkrow.jpg')
+        div(class='vs-name')= 'Andrej Odor'
+        div(class='vs-aka')= 'aka'
+        div(class='vs-nick')= 'andrejod'
+
+      div(class='vs-avatar')
+        img(src='images/kriwkrow.jpg')
+        div(class='vs-name')= 'Krisjanis Rijnieks'
+        div(class='vs-aka')= 'aka'
+        div(class='vs-nick')= 'kriwkrow'
+
+    div(class='vs-comparator') 
+      span= 'vs'  
+  
+    div(class='countdown-container hidden')  
+      div(class='countdown-digit')
+        span= '3'
+
   script(src='/javascripts/brackets.js')

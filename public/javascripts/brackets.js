@@ -17,12 +17,12 @@ function initPolling() {
   interval = setInterval(poll, 1000);
 }
 
-function toggleCountdown() {
-  if ($('.countdown').hasClass('hidden')) {
-    $('.countdown').removeClass('hidden');
+function toggleOverlay() {
+  if ($('.overlay').hasClass('hidden')) {
+    $('.overlay').removeClass('hidden');
     $('body').addClass('noscroll');
   } else {
-    $('.countdown').addClass('hidden');
+    $('.overlay').addClass('hidden');
     $('body').removeClass('noscroll');
   }
 }
@@ -34,6 +34,6 @@ $(document).ready(function() {
 $(document).keypress(function(event) {
   event.preventDefault();
   if (event.keyCode === keySpace) {
-    toggleCountdown();
+    toggleOverlay();
   }
 });
