@@ -12,8 +12,9 @@ function removeListeners() {
 function addListeners() {
   console.log('adding listeners');
   $('.match').on('click', function() {
-    team1 = $(this).find('.label').eq(0).text();
-    team2 = $(this).find('.label').eq(1).text();
+    var labels = $(this).find('.label');
+    team1 = labels.eq(0).text();
+    team2 = labels.eq(1).text();
   });
 }
 
@@ -44,6 +45,8 @@ function toggleShowMatch() {
   showMatch = !showMatch;
   console.log(showMatch);
   backupData.showMatch = showMatch;
+  backupData.team1 = team1;
+  backupData.team2 = team2;
   saveFn(backupData);
 }
 

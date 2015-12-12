@@ -18,7 +18,26 @@ function poll() {
     $('.brackets').bracket({
       init: data[0]
     });
-    toggleOverlay(data[0].showMatch);
+
+    var team1 = data[0].team1.toLowerCase();
+    var team2 = data[0].team2.toLowerCase();
+    if(team1 && team2) {
+      if (team1 !== '' && team2 !== '') {
+        var pic1 = '/images/' + team1 + '.jpg';
+        var pic2 = '/images/' + team2 + '.jpg';
+
+        $('.team1').find('img').eq(0).attr('src', pic1);
+        $('.team2').find('img').eq(0).attr('src', pic2);
+
+        var nick1 = team1;
+        var nick2 = team2;
+
+        $('.nick1').text(nick1);
+        $('.nick2').text(nick2);
+
+        toggleOverlay(data[0].showMatch);
+      }
+    }    
   })
   .fail(function() {
     console.log('Failed to load tournament data.');
